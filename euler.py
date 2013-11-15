@@ -3,20 +3,17 @@
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 import math
 
-Phi = 1.6180339
-phi = -0.6180339
+Phi = 1.618033988749894848204586834365638117720309179805762862135448#Sloane in the hizzouse!
+phi = -0.618033988749894848204586834365638117720309179805762862135448
 limit = 4000000
 result = []
-garbage = []
 
 def binet(n):
-	return math.ceil((math.pow(Phi,n)/math.sqrt(5)) - (math.pow(phi,n)/math.sqrt(5)))
+	return math.floor((math.pow(Phi,n)/math.sqrt(5)) - (math.pow(phi,n)/math.sqrt(5)))
 
 for i in range(1,40):
 	fib = binet(i)
 	if (fib%2==0 and fib <= limit):
 		result.append(fib)
-	else:
-		garbage.append(fib)
 
-print result, "\n", garbage, "\n", math.fsum(result)
+print math.fsum(result)
